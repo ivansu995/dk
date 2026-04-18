@@ -1,0 +1,1234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Darjan Karabašević — Full Professor, Ph.D.</title>
+    <meta name="description" content="Professional website of Prof. Dr. Darjan Karabašević — Full Professor at University Business Academy in Novi Sad, researcher in MCDM, neutrosophy, and computational intelligence.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,600&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --ink: #0f1117;
+            --ink-secondary: #3a3d4a;
+            --ink-tertiary: #7a7e8c;
+            --surface: #f8f7f4;
+            --surface-2: #f0ede8;
+            --surface-3: #e6e2db;
+            --accent: #1e3a5f;
+            --accent-light: #2d5490;
+            --accent-pale: #e8eef6;
+            --gold: #b8860b;
+            --gold-light: #f5f0e6;
+            --line: rgba(15,17,23,0.1);
+            --line-strong: rgba(15,17,23,0.2);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 16px;
+            line-height: 1.7;
+            background: var(--surface);
+            color: var(--ink);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ── TYPOGRAPHY ── */
+        h1, h2, h3, h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 500;
+            line-height: 1.15;
+            letter-spacing: -0.01em;
+        }
+
+        /* ── NAV ── */
+        nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 100;
+            background: rgba(248,247,244,0.92);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.3s, background 0.3s;
+        }
+        nav.scrolled {
+            border-color: var(--line);
+            background: rgba(248,247,244,0.98);
+        }
+        .nav-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .nav-brand {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            color: var(--accent);
+            text-decoration: none;
+        }
+        .nav-links {
+            display: flex;
+            gap: 0.25rem;
+            list-style: none;
+        }
+        .nav-links a {
+            font-size: 0.8rem;
+            font-weight: 400;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--ink-secondary);
+            text-decoration: none;
+            padding: 0.4rem 0.75rem;
+            border-radius: 4px;
+            transition: color 0.2s, background 0.2s;
+        }
+        .nav-links a:hover {
+            color: var(--accent);
+            background: var(--accent-pale);
+        }
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 4px;
+            background: none;
+            border: none;
+        }
+        .hamburger span {
+            display: block;
+            width: 24px;
+            height: 1.5px;
+            background: var(--ink);
+            transition: 0.3s;
+        }
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 64px; left: 0; right: 0;
+            background: var(--surface);
+            border-bottom: 1px solid var(--line);
+            padding: 1rem 2rem 1.5rem;
+            z-index: 99;
+        }
+        .mobile-menu.open { display: block; }
+        .mobile-menu a {
+            display: block;
+            font-size: 0.875rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: var(--ink-secondary);
+            text-decoration: none;
+            padding: 0.6rem 0;
+            border-bottom: 1px solid var(--line);
+        }
+        .mobile-menu a:last-child { border: none; }
+
+        /* ── HERO ── */
+        #home {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 7rem 2rem 5rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, #f8f7f4 0%, #edeae3 50%, #e2ddd5 100%);
+        }
+        .hero-grid-overlay {
+            position: absolute;
+            inset: 0;
+            background-image: 
+                linear-gradient(var(--line) 1px, transparent 1px),
+                linear-gradient(90deg, var(--line) 1px, transparent 1px);
+            background-size: 60px 60px;
+            mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 0%, transparent 100%);
+            -webkit-mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 0%, transparent 100%);
+        }
+        .hero-inner {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6rem;
+            align-items: center;
+        }
+        .hero-text {}
+        .hero-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.72rem;
+            font-weight: 500;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+        }
+        .hero-label::before {
+            content: '';
+            display: inline-block;
+            width: 24px;
+            height: 1px;
+            background: var(--gold);
+        }
+        h1.hero-name {
+            font-size: clamp(3rem, 6vw, 5rem);
+            font-weight: 500;
+            color: var(--ink);
+            margin-bottom: 0.5rem;
+        }
+        h1.hero-name em {
+            font-style: italic;
+            color: var(--accent);
+        }
+        .hero-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            font-weight: 400;
+            font-style: italic;
+            color: var(--ink-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.5;
+        }
+        .hero-affiliation {
+            font-size: 0.875rem;
+            color: var(--ink-tertiary);
+            line-height: 1.6;
+            padding-left: 1rem;
+            border-left: 2px solid var(--accent-pale);
+        }
+        .hero-stats {
+            display: flex;
+            gap: 2.5rem;
+            margin-top: 2.5rem;
+        }
+        .stat-item { text-align: left; }
+        .stat-num {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.2rem;
+            font-weight: 600;
+            color: var(--accent);
+            line-height: 1;
+        }
+        .stat-label {
+            font-size: 0.75rem;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--ink-tertiary);
+            margin-top: 0.25rem;
+        }
+        .hero-ctas {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2.5rem;
+        }
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: #fff;
+            background: var(--accent);
+            padding: 0.75rem 1.5rem;
+            border: 1px solid var(--accent);
+            transition: background 0.2s, transform 0.2s;
+        }
+        .btn-primary:hover { background: var(--accent-light); transform: translateY(-1px); }
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: var(--accent);
+            background: transparent;
+            padding: 0.75rem 1.5rem;
+            border: 1px solid var(--line-strong);
+            transition: border-color 0.2s, background 0.2s;
+        }
+        .btn-secondary:hover { border-color: var(--accent); background: var(--accent-pale); }
+
+        .hero-portrait-wrap {
+            position: relative;
+            display: flex;
+            justify-content: center;
+        }
+        .hero-portrait-bg {
+            position: absolute;
+            width: 85%;
+            height: 85%;
+            bottom: -2rem;
+            right: -2rem;
+            background: var(--accent-pale);
+            border: 1px solid rgba(30,58,95,0.15);
+        }
+        .hero-portrait {
+            position: relative;
+            width: 90%;
+            max-width: 420px;
+            aspect-ratio: 3/4;
+            object-fit: cover;
+            object-position: top center;
+            filter: grayscale(20%);
+        }
+        .hero-portrait-placeholder {
+            position: relative;
+            width: 90%;
+            max-width: 420px;
+            aspect-ratio: 3/4;
+            background: linear-gradient(160deg, #c8d8e8 0%, #a0b8d0 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+        }
+        .portrait-initials {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 5rem;
+            font-weight: 500;
+            color: rgba(255,255,255,0.9);
+            letter-spacing: 0.05em;
+        }
+        .portrait-caption {
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.6);
+        }
+
+        /* ── SECTION SHARED ── */
+        section {
+            padding: 6rem 2rem;
+        }
+        .section-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .section-header {
+            margin-bottom: 4rem;
+            display: flex;
+            align-items: baseline;
+            gap: 1.5rem;
+        }
+        .section-eyebrow {
+            font-size: 0.7rem;
+            font-weight: 500;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--gold);
+            white-space: nowrap;
+        }
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 500;
+            color: var(--ink);
+        }
+        .section-line {
+            flex: 1;
+            height: 1px;
+            background: var(--line);
+            margin-left: 1rem;
+        }
+
+        /* ── ABOUT ── */
+        #about { background: var(--surface); }
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0;
+            border: 1px solid var(--line);
+        }
+        .about-card {
+            padding: 2.5rem 2rem;
+            border-right: 1px solid var(--line);
+            transition: background 0.3s;
+        }
+        .about-card:last-child { border-right: none; }
+        .about-card:hover { background: var(--surface-2); }
+        .about-icon-wrap {
+            width: 48px;
+            height: 48px;
+            background: var(--accent-pale);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+        .about-icon-svg { width: 22px; height: 22px; stroke: var(--accent); fill: none; stroke-width: 1.5; }
+        .about-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.75rem;
+            color: var(--ink);
+        }
+        .about-card p {
+            font-size: 0.875rem;
+            color: var(--ink-secondary);
+            line-height: 1.75;
+        }
+        .about-card a { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent-pale); }
+        .about-card a:hover { border-color: var(--accent); }
+
+        /* ── PAPERS ── */
+        #neutrosophy { background: var(--surface-2); }
+        #selected-papers { background: var(--surface); }
+
+        .papers-list { display: flex; flex-direction: column; gap: 0; }
+        .paper-item {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 0 2rem;
+            padding: 1.75rem 0;
+            border-bottom: 1px solid var(--line);
+            text-decoration: none;
+            color: inherit;
+            transition: background 0.2s;
+            position: relative;
+        }
+        .paper-item:first-child { border-top: 1px solid var(--line); }
+        .paper-item:hover { background: var(--surface-2); margin: 0 -2rem; padding-left: 2rem; padding-right: 2rem; }
+        .paper-num {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--ink-tertiary);
+            padding-top: 0.2rem;
+            min-width: 2rem;
+            text-align: right;
+        }
+        .paper-content {}
+        .paper-authors {
+            font-size: 0.8rem;
+            color: var(--ink-tertiary);
+            margin-bottom: 0.25rem;
+            line-height: 1.5;
+        }
+        .paper-authors strong {
+            color: var(--accent);
+            font-weight: 500;
+        }
+        .paper-title-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.15rem;
+            font-weight: 500;
+            color: var(--ink);
+            line-height: 1.4;
+            margin-bottom: 0.4rem;
+        }
+        .paper-venue {
+            font-size: 0.8rem;
+            font-style: italic;
+            color: var(--ink-tertiary);
+        }
+        .paper-arrow {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
+            opacity: 0;
+            transition: opacity 0.2s;
+            color: var(--accent);
+        }
+        .paper-item:hover .paper-arrow { opacity: 1; right: 2rem; }
+
+        .papers-cta {
+            margin-top: 3rem;
+            text-align: center;
+        }
+
+        /* ── HONORS ── */
+        #honors { background: var(--surface-2); }
+        .honors-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+        .honor-card {
+            position: relative;
+            overflow: hidden;
+            background: var(--surface);
+            border: 1px solid var(--line);
+        }
+        .honor-card img {
+            width: 100%;
+            aspect-ratio: 4/3;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+            filter: grayscale(30%);
+        }
+        .honor-card:hover img { transform: scale(1.04); }
+        .honor-caption {
+            padding: 1.25rem 1.5rem;
+            border-top: 1px solid var(--line);
+        }
+        .honor-org {
+            font-size: 0.7rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 0.25rem;
+        }
+        .honor-date {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
+            color: var(--ink);
+        }
+        .honors-placeholder {
+            width: 100%;
+            aspect-ratio: 4/3;
+            background: var(--accent-pale);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .honors-placeholder svg { width: 48px; height: 48px; stroke: var(--accent); fill: none; stroke-width: 1; opacity: 0.4; }
+
+        /* ── CV ── */
+        #curriculum-vitae { background: var(--surface); }
+        .cv-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+        }
+        .cv-column h3 {
+            font-size: 0.7rem;
+            font-weight: 500;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 2.5rem;
+        }
+        .timeline-item {
+            position: relative;
+            padding-left: 1.5rem;
+            padding-bottom: 2.5rem;
+            border-left: 1px solid var(--line);
+        }
+        .timeline-item:last-child { border-color: transparent; padding-bottom: 0; }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -4px;
+            top: 6px;
+            width: 7px;
+            height: 7px;
+            background: var(--accent);
+            border-radius: 50%;
+        }
+        .timeline-date {
+            font-size: 0.72rem;
+            font-weight: 500;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 0.25rem;
+        }
+        .timeline-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.15rem;
+            color: var(--ink);
+            margin-bottom: 0.2rem;
+        }
+        .timeline-org {
+            font-size: 0.8rem;
+            color: var(--ink-tertiary);
+            margin-bottom: 0.5rem;
+            font-style: italic;
+        }
+        .timeline-desc {
+            font-size: 0.85rem;
+            color: var(--ink-secondary);
+            line-height: 1.65;
+        }
+
+        /* ── CONTACT ── */
+        #contact { background: var(--accent); }
+        #contact .section-title { color: #fff; }
+        #contact .section-eyebrow { color: rgba(255,255,255,0.5); }
+        #contact .section-line { background: rgba(255,255,255,0.15); }
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+        }
+        .contact-block h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 1.5rem;
+        }
+        .contact-row {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+            margin-bottom: 1.25rem;
+        }
+        .contact-icon {
+            width: 36px;
+            height: 36px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+        .contact-icon svg { width: 16px; height: 16px; stroke: rgba(255,255,255,0.8); fill: none; stroke-width: 1.5; }
+        .contact-label {
+            font-size: 0.7rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.45);
+            margin-bottom: 0.2rem;
+        }
+        .contact-value {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.85);
+            line-height: 1.5;
+        }
+        .contact-value a {
+            color: rgba(255,255,255,0.85);
+            text-decoration: none;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            transition: border-color 0.2s;
+        }
+        .contact-value a:hover { border-color: rgba(255,255,255,0.7); }
+        .social-link {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+            color: rgba(255,255,255,0.8);
+            padding: 0.75rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            transition: color 0.2s;
+            font-size: 0.875rem;
+        }
+        .social-link:hover { color: #fff; }
+        .social-link svg { width: 16px; height: 16px; fill: currentColor; opacity: 0.6; }
+        .social-tag {
+            margin-left: auto;
+            font-size: 0.7rem;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.35);
+        }
+
+        /* ── FOOTER ── */
+        footer {
+            background: #0a0d14;
+            color: rgba(255,255,255,0.35);
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.8rem;
+            letter-spacing: 0.04em;
+        }
+
+        /* ── BACK TO TOP ── */
+        .back-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 44px;
+            height: 44px;
+            background: var(--accent);
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 99;
+            transition: background 0.2s, transform 0.2s;
+        }
+        .back-top.visible { display: flex; }
+        .back-top:hover { background: var(--accent-light); transform: translateY(-2px); }
+        .back-top svg { width: 18px; height: 18px; stroke: #fff; fill: none; stroke-width: 2; }
+
+        /* ── ANIMATIONS ── */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .fade-up.in { opacity: 1; transform: none; }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 900px) {
+            .hero-inner { grid-template-columns: 1fr; gap: 3rem; }
+            .hero-portrait-wrap { order: -1; }
+            .hero-portrait, .hero-portrait-placeholder { max-width: 280px; aspect-ratio: 1/1; }
+            .about-grid { grid-template-columns: 1fr 1fr; }
+            .about-card { border-right: none; border-bottom: 1px solid var(--line); }
+            .about-card:nth-child(odd) { border-right: 1px solid var(--line); }
+            .about-card:last-child, .about-card:nth-last-child(2):nth-child(odd) { border-bottom: none; }
+            .honors-grid { grid-template-columns: 1fr 1fr; }
+            .cv-grid { grid-template-columns: 1fr; gap: 3rem; }
+            .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+            nav .nav-links { display: none; }
+            .hamburger { display: flex; }
+        }
+        @media (max-width: 560px) {
+            .about-grid { grid-template-columns: 1fr; }
+            .about-card { border-right: none; border-bottom: 1px solid var(--line); }
+            .about-card:last-child { border-bottom: none; }
+            .honors-grid { grid-template-columns: 1fr; }
+            .hero-stats { gap: 1.5rem; }
+            section { padding: 4rem 1.25rem; }
+            #home { padding-top: 5rem; padding-left: 1.25rem; padding-right: 1.25rem; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+    <div class="nav-inner">
+        <a href="#home" class="nav-brand">D. Karabašević</a>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#neutrosophy">Neutrosophy</a></li>
+            <li><a href="#selected-papers">Publications</a></li>
+            <li><a href="#honors">Honors</a></li>
+            <li><a href="#curriculum-vitae">CV</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#neutrosophy">Neutrosophy</a>
+    <a href="#selected-papers">Publications</a>
+    <a href="#honors">Honors</a>
+    <a href="#curriculum-vitae">CV</a>
+    <a href="#contact">Contact</a>
+</div>
+
+<!-- HERO -->
+<section id="home" style="padding-top: 7rem; padding-bottom: 5rem;">
+    <div class="hero-bg"></div>
+    <div class="hero-grid-overlay"></div>
+    <div class="hero-inner">
+        <div class="hero-text fade-up">
+            <div class="hero-label">Full Professor &amp; Researcher</div>
+            <h1 class="hero-name">Darjan<br><em>Karabašević</em></h1>
+            <p class="hero-title">Ph.D. in Computer Science &amp; Ph.D. in Management</p>
+            <div class="hero-affiliation">
+                Vice Dean for Scientific Research<br>
+                Faculty of Applied Management, Economics and Finance<br>
+                University Business Academy in Novi Sad
+            </div>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <div class="stat-num">200+</div>
+                    <div class="stat-label">Publications</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-num">60+</div>
+                    <div class="stat-label">Impact Factor Journals</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-num">2</div>
+                    <div class="stat-label">Doctorates</div>
+                </div>
+            </div>
+            <div class="hero-ctas">
+                <a href="#selected-papers" class="btn-primary">View Publications</a>
+                <a href="#contact" class="btn-secondary">Contact</a>
+            </div>
+        </div>
+        <div class="hero-portrait-wrap fade-up" style="transition-delay: 0.15s;">
+            <div class="hero-portrait-bg"></div>
+            <img src="images/darjan.jpg" alt="Prof. Dr. Darjan Karabašević" class="hero-portrait"
+                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="hero-portrait-placeholder" style="display:none;">
+                <div class="portrait-initials">DK</div>
+                <div class="portrait-caption">Prof. Dr. Darjan Karabašević</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+    <div class="section-inner">
+        <div class="section-header fade-up">
+            <span class="section-eyebrow">Profile</span>
+            <h2 class="section-title">About</h2>
+            <div class="section-line"></div>
+        </div>
+        <div class="about-grid fade-up">
+            <div class="about-card">
+                <div class="about-icon-wrap">
+                    <svg class="about-icon-svg" viewBox="0 0 24 24"><path d="M12 2a5 5 0 110 10 5 5 0 010-10zM4 20c0-4 3.58-7 8-7s8 3 8 7"/></svg>
+                </div>
+                <h3>Academic Role</h3>
+                <p>Full Professor of Informatics and Management and Vice-dean at the Faculty of Applied Management, Economics and Finance, University Business Academy in Novi Sad. Holds a Ph.D. in Computer Science (University of Novi Pazar) and a Ph.D. in Management and Business (John Naisbitt University).</p>
+            </div>
+            <div class="about-card">
+                <div class="about-icon-wrap">
+                    <svg class="about-icon-svg" viewBox="0 0 24 24"><path d="M4 19V7l8-5 8 5v12M9 19v-6h6v6"/></svg>
+                </div>
+                <h3>Research</h3>
+                <p>Author or co-author of over 200 scientific papers, of which more than 60 are published in journals with Impact Factor. Co-creator of the WISP, ARCAS, PIPRECIA, and PIPRECIA-S methods. Research spans multiple-criteria decision-making, fuzzy, intuitionistic, neutrosophic, and grey sets theory, and computational intelligence.</p>
+            </div>
+            <div class="about-card">
+                <div class="about-icon-wrap">
+                    <svg class="about-icon-svg" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M9 11a4 4 0 100-8 4 4 0 000 8zM23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+                </div>
+                <h3>Memberships</h3>
+                <p>Member and President of the Serbian branch of the Neutrosophic Science International Association (NSIA). Member of the International Society on Multiple Criteria Decision Making (MCDM) since 2016.</p>
+            </div>
+            <div class="about-card">
+                <div class="about-icon-wrap">
+                    <svg class="about-icon-svg" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                </div>
+                <h3>Editorial</h3>
+                <p>Editor-in-Chief of the <a href="https://www.japmnt.com" target="_blank">Journal of Process Management and New Technologies (JPMNT)</a>. Editor of <em>Axioms</em> (SCIe, IF: 1.824). Member of the editorial boards of several international journals. Has reviewed over 200 papers for Springer, Elsevier, Taylor &amp; Francis, MDPI, and others.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- NEUTROSOPHY PAPERS -->
+<section id="neutrosophy">
+    <div class="section-inner">
+        <div class="section-header fade-up">
+            <span class="section-eyebrow">Featured</span>
+            <h2 class="section-title">Neutrosophy Papers</h2>
+            <div class="section-line"></div>
+        </div>
+        <div class="papers-list fade-up">
+
+            <a class="paper-item" href="https://link.springer.com/article/10.1007/s11063-023-11175-7" target="_blank">
+                <span class="paper-num">01</span>
+                <div class="paper-content">
+                    <div class="paper-authors">Katsikis V.N., Stanimirović P.S., Mourtas S.D., Xiao L., Stanujkić D., &amp; <strong>Karabašević D.</strong></div>
+                    <div class="paper-title-text">Zeroing Neural Network Based on Neutrosophic Logic for Calculating Minimal-Norm Least-Squares Solutions to Time-Varying Linear Systems</div>
+                    <div class="paper-venue">Neural Processing Letters, 2023</div>
+                </div>
+                <svg class="paper-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>
+            </a>
+
+            <a class="paper-item" href="https://www.sciencedirect.com/science/article/pii/B9780323994569000234" target="_blank">
+                <span class="paper-num">02</span>
+                <div class="paper-content">
+                    <div class="paper-authors">Aleeswari A., Martin N., Smarandache F., &amp; <strong>Karabasevic D.</strong></div>
+                    <div class="paper-title-text">Neutrosophic Statistical Analysis of Hybrid Work Model of Medical Professionals</div>
+                    <div class="paper-venue">Cognitive Intelligence with Neutrosophic Statistics in Bioinformatics — Academic Press, Elsevier, 2023</div>
+                </div>
+                <svg class="paper-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>
+            </a>
+
+            <a class="paper-item" href="https://informatica.vu.lt/journal/INFORMATICA/article/1256/text" target="_blank">
+                <span class="paper-num">03</span>
+                <div class="paper-content">
+                    <div class="paper-authors">Stanujkic D., <strong>Karabasevic D.</strong>, Popovic G., Smarandache F., Stanimirović P.S., Saračević M., &amp; Katsikis V.N.</div>
+                    <div class="paper-title-text">A Single Valued Neutrosophic Extension of the Simple WISP Method</div>
+                    <div class="paper-venue">Informatica, 33(3), 635–651, 2022</div>
+                </div>
+                <svg class="paper-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>
+            </a>
+
+            <a class="paper-item" href="https://www.mdpi.com/2073-8994/12/8/1263/htm" target="_blank">
+                <span class="paper-num">04</span>
+                <div class="paper-content">
+                    <div class="paper-authors"><strong>Karabasevic D.</strong>, Stanujkic D., Zavadskas E.K., Stanimirovic P., Popovic G., Predic B., &amp; Ulutaş A.</div>
+                    <div class="paper-title-text">A Novel Extension of the TOPSIS Method Adapted for the Use of Single-Valued Neutrosophic Sets and Hamming Distance for E-Commerce Development Strategies Selection</div>
+                    <div class="paper-venue">Symmetry, 12(8), 1263, 2020</div>
+                </div>
+                <svg class="paper-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>
+            </a>
+
+            <a class="paper-item" href="https://informatica.vu.lt/pdf/INFO1131.pdf" target="_blank">
+                <span class="paper-num">05</span>
+                <div class="paper-content">
+                    <div class="paper-authors">Stanujkic D., Zavadskas E.K., Smarandache F., Brauers W.K.M. &amp; <strong>Karabasevic D.</strong></div>
+                    <div class="paper-title-text">A Neutrosophic Extension of the MULTIMOORA Method</div>
+                    <div class="paper-venue">Informatica, 28(1), 181–192, 2017 — IF: 1.386</div>
+                </div>
+                <svg class="paper-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>
+            </a>
+
+            <a class="paper-item" href="https://vixra.org/pdf/1705.0077v1.pdf" target="_blank">
+                <span class="paper-num">06</span>
+                <div class="paper-content">
+                    <div class="paper-authors">Stanujkic D., Smarandache F., Zavadskas E.K. &amp; <strong>Karabasevic D.</strong></div>
+                    <div class="paper-title-text">Multiple Criteria Evaluation Model Based on the Single Valued Neutrosophic Set</div>
+                    <div class="paper-venue">Neutrosophic Sets and Systems, 14(1), 3–6, 2016</div>
+                </div>
+                <svg class="paper-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>
+            </a>
+
+        </div>
+    </div>
+</section>
+
+<!-- SELECTED PAPERS -->
+<section id="selected-papers">
+    <div class="section-inner">
+        <div class="section-header fade-up">
+            <span class="section-eyebrow">Research</span>
+            <h2 class="section-title">Selected Publications</h2>
+            <div class="section-line"></div>
+        </div>
+        <div class="papers-list fade-up">
+
+            <a class="paper-item" href="https://www.sciencedirect.com/science/article/abs/pii/S0892687519302043" target="_blank">
+                <span class="paper-num">01</span>
+                <div class="paper-content">
+                    <div class="paper-authors">Stanujkic D., Zavadskas E.K., <strong>Karabasevic D.</strong>, Milanovic D., &amp; Maksimovic M.</div>
+                    <div class="paper-title-text">An Approach to Solving Complex Decision-Making Problems Based on IVIFNs: A Case of Comminution Circuit Design Selection</div>
+                    <div class="paper-venue">Minerals Engineering, 138, 70–78, 2019 — IF: 3.315</div>
+                </div>
+                <svg class="paper-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>
+            </a>
+
+            <a class="paper-item" href="https://www.sciencedirect.com/science/article/abs/pii/S026483771930050X" target="_blank">
+                <span class="paper-num">02</span>
+                <div class="paper-content">
+                    <div class="paper-authors">Popovic G., Stanujkic D., Brzakovic M., &amp; <strong>Karabasevic D.</strong></div>
+                    <div class="paper-title-text">A Multiple-Criteria Decision-Making Model for the Selection of a Hotel Location</div>
+                    <div class="paper-venue">Land Use Policy, 84, 49–58, 2019 — IF: 3.573</div>
+                </div>
+                <svg class="paper-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>
+            </a>
+
+            <a class="paper-item" href="https://informatica.vu.lt/pdf/INFO1215.pdf" target="_blank">
+                <span class="paper-num">03</span>
+                <div class="paper-content">
+                    <div class="paper-authors">Stanujkic D., <strong>Karabasevic D.</strong>, Zavadskas E.K., Smarandache F., &amp; Brauers W.K.M.</div>
+                    <div class="paper-title-text">A Bipolar Fuzzy Extension of the MULTIMOORA Method</div>
+                    <div class="paper-venue">Informatica, 30(1), 135–152, 2019 — IF: 1.928</div>
+                </div>
+                <svg class="paper-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>
+            </a>
+
+            <a class="paper-item" href="https://ipe.ro/rjef/rjef4_17/rjef4_2017p116-133.pdf" target="_blank">
+                <span class="paper-num">04</span>
+                <div class="paper-content">
+                    <div class="paper-authors">Stanujkic D., Zavadskas E.K., <strong>Karabasevic D.</strong>, Smarandache F., &amp; Turskis Z.</div>
+                    <div class="paper-title-text">The Use of the PIvot Pairwise RElative Criteria Importance Assessment (PIPRECIA) Method for Determining the Weights of Criteria</div>
+                    <div class="paper-venue">Romanian Journal of Economic Forecasting, 20(4), 116–136, 2017 — IF: 0.263</div>
+                </div>
+                <svg class="paper-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>
+            </a>
+
+            <a class="paper-item" href="https://journals.vilniustech.lt/index.php/JBEM/article/view/1225/963" target="_blank">
+                <span class="paper-num">05</span>
+                <div class="paper-content">
+                    <div class="paper-authors">Stanujkic D., Zavadskas E.K., <strong>Karabasevic D.</strong>, Turskis Z. &amp; Kersuliene V.</div>
+                    <div class="paper-title-text">A New Group Decision Making ARCAS Approach Based on the Integration of the SWARA and the ARAS Methods Adopted for Negotiations</div>
+                    <div class="paper-venue">Journal of Business Economics and Management, 18(4), 599–618, 2017 — IF: 1.503</div>
+                </div>
+                <svg class="paper-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>
+            </a>
+
+            <a class="paper-item" href="https://informatica.vu.lt/pdf/INFO1090.pdf" target="_blank">
+                <span class="paper-num">06</span>
+                <div class="paper-content">
+                    <div class="paper-authors"><strong>Karabasevic D.</strong>, Zavadskas E.K., Turskis Z., &amp; Stanujkic D.</div>
+                    <div class="paper-title-text">The Framework for the Selection of Personnel Based on the SWARA and ARAS Methods Under Uncertainties</div>
+                    <div class="paper-venue">Informatica, 27(1), 49–65, 2016 — IF: 1.056</div>
+                </div>
+                <svg class="paper-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>
+            </a>
+
+            <a class="paper-item" href="https://informatica.vu.lt/pdf/INFO1138.pdf" target="_blank">
+                <span class="paper-num">07</span>
+                <div class="paper-content">
+                    <div class="paper-authors">Stanujkic D., Zavadskas E.K., <strong>Karabasevic D.</strong>, Urosevic S., &amp; Maksimovic M.</div>
+                    <div class="paper-title-text">An Approach for Evaluating Website Quality in the Hotel Industry Based on Triangular Intuitionistic Fuzzy Numbers</div>
+                    <div class="paper-venue">Informatica, 28(4), 725–748, 2017 — IF: 1.386</div>
+                </div>
+                <svg class="paper-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>
+            </a>
+
+            <a class="paper-item" href="https://actamont.tuke.sk/pdf/2015/n2/6karabasevic.pdf" target="_blank">
+                <span class="paper-num">08</span>
+                <div class="paper-content">
+                    <div class="paper-authors"><strong>Karabasevic D.</strong>, Stanujkic D., Urosevic S., &amp; Maksimovic M.</div>
+                    <div class="paper-title-text">Selection of Candidates in the Mining Industry Based on the Application of the SWARA and the MULTIMOORA Methods</div>
+                    <div class="paper-venue">Acta Montanistica Slovaca, 20(2), 116–124, 2015 — IF: 0.390</div>
+                </div>
+                <svg class="paper-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>
+            </a>
+
+        </div>
+        <div class="papers-cta fade-up">
+            <a href="./images/FPL.pdf" class="btn-primary" target="_blank">Download Full Publication List</a>
+        </div>
+    </div>
+</section>
+
+<!-- HONORS -->
+<section id="honors">
+    <div class="section-inner">
+        <div class="section-header fade-up">
+            <span class="section-eyebrow">Recognition</span>
+            <h2 class="section-title">Honors</h2>
+            <div class="section-line"></div>
+        </div>
+        <div class="honors-grid fade-up">
+            <div class="honor-card">
+                <img src="./images/president_of_NISA.jpg" alt="President of NSIA Serbia, 2022"
+                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="honors-placeholder" style="display:none;">
+                    <svg viewBox="0 0 64 64"><circle cx="32" cy="24" r="10"/><path d="M8 56c0-13.25 10.74-24 24-24s24 10.75 24 24"/></svg>
+                </div>
+                <div class="honor-caption">
+                    <div class="honor-org">Neutrosophic Science International Association</div>
+                    <div class="honor-date">President — March 13, 2022</div>
+                </div>
+            </div>
+            <div class="honor-card">
+                <img src="./images/NSHead.jpg" alt="NSIA Honor, 2018"
+                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="honors-placeholder" style="display:none;">
+                    <svg viewBox="0 0 64 64"><circle cx="32" cy="24" r="10"/><path d="M8 56c0-13.25 10.74-24 24-24s24 10.75 24 24"/></svg>
+                </div>
+                <div class="honor-caption">
+                    <div class="honor-org">Neutrosophic Science</div>
+                    <div class="honor-date">August 17, 2018</div>
+                </div>
+            </div>
+            <div class="honor-card">
+                <img src="./images/NS.jpg" alt="Neutrosophic Science Honor, 2017"
+                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="honors-placeholder" style="display:none;">
+                    <svg viewBox="0 0 64 64"><circle cx="32" cy="24" r="10"/><path d="M8 56c0-13.25 10.74-24 24-24s24 10.75 24 24"/></svg>
+                </div>
+                <div class="honor-caption">
+                    <div class="honor-org">Neutrosophic Science</div>
+                    <div class="honor-date">January 14, 2017</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CV -->
+<section id="curriculum-vitae">
+    <div class="section-inner">
+        <div class="section-header fade-up">
+            <span class="section-eyebrow">Background</span>
+            <h2 class="section-title">Curriculum Vitae</h2>
+            <div class="section-line"></div>
+        </div>
+        <div class="cv-grid fade-up">
+            <div class="cv-column">
+                <h3>Education</h3>
+                <div class="timeline-item">
+                    <div class="timeline-date">2022</div>
+                    <div class="timeline-title">Ph.D. in Computer Science</div>
+                    <div class="timeline-org">University in Novi Pazar, Serbia</div>
+                    <div class="timeline-desc">Thesis: New models, methods and integrated approaches in solving multiple criteria decision-making problems</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2013 – 2016</div>
+                    <div class="timeline-title">Ph.D. in Management and Business</div>
+                    <div class="timeline-org">John Naisbitt University — Faculty of Management Zaječar, Serbia</div>
+                    <div class="timeline-desc">Thesis: Defining the Criteria for the Evaluation of Candidates in the Process of Recruitment and Selection of Personnel by Applying MCDM Methods</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2011 – 2012</div>
+                    <div class="timeline-title">Specialist in Management</div>
+                    <div class="timeline-org">Megatrend University — Faculty of Management Zaječar, Serbia</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2007 – 2009</div>
+                    <div class="timeline-title">Bachelor of Economics (M.Sc. equivalent)</div>
+                    <div class="timeline-org">Megatrend University — Faculty of Management Zaječar</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2004 – 2007</div>
+                    <div class="timeline-title">Bachelor of Economics Applied</div>
+                    <div class="timeline-org">Megatrend University — College of Management in Zaječar</div>
+                </div>
+            </div>
+            <div class="cv-column">
+                <h3>Experience</h3>
+                <div class="timeline-item">
+                    <div class="timeline-date">2023 – Present</div>
+                    <div class="timeline-title">Full Professor &amp; Vice-dean</div>
+                    <div class="timeline-org">Faculty of Applied Management, Economics and Finance — University Business Academy in Novi Sad</div>
+                    <div class="timeline-desc">Vice-dean for Scientific Research (2018–present). Previously Associate Professor (2020–2023) and Assistant Professor (2017–2020).</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2022</div>
+                    <div class="timeline-title">Associate Professor</div>
+                    <div class="timeline-org">Faculty of Informational Technology, University "VITEZ" Travnik, Bosnia and Herzegovina</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2015 – 2018</div>
+                    <div class="timeline-title">Research Associate</div>
+                    <div class="timeline-org">Faculty of Management in Zajecar, John Naisbitt University</div>
+                    <div class="timeline-desc">Research associate for the scientific field of information technologies.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2007 – 2018</div>
+                    <div class="timeline-title">Shop Advisor → Shop Manager</div>
+                    <div class="timeline-org">Vip Mobile Ltd (A1 Serbia), A1 Telekom Austria Group</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+    <div class="section-inner">
+        <div class="section-header fade-up">
+            <span class="section-eyebrow" style="color: rgba(255,255,255,0.45);">Reach out</span>
+            <h2 class="section-title" style="color:#fff;">Contact</h2>
+            <div class="section-line" style="background: rgba(255,255,255,0.15);"></div>
+        </div>
+        <div class="contact-grid fade-up">
+            <div class="contact-block">
+                <h3>Address &amp; Contact</h3>
+                <div class="contact-row">
+                    <div class="contact-icon">
+                        <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                    </div>
+                    <div>
+                        <div class="contact-label">Address</div>
+                        <div class="contact-value">Jevrejska 24, 11000 Belgrade, Serbia<br>Faculty of Applied Management, Economics and Finance</div>
+                    </div>
+                </div>
+                <div class="contact-row">
+                    <div class="contact-icon">
+                        <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                    </div>
+                    <div>
+                        <div class="contact-label">Email</div>
+                        <div class="contact-value">
+                            <a href="mailto:darjankarabasevic@gmail.com">darjankarabasevic@gmail.com</a><br>
+                            <a href="mailto:darjan.karabasevic@mef.edu.rs">darjan.karabasevic@mef.edu.rs</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-row">
+                    <div class="contact-icon">
+                        <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
+                    </div>
+                    <div>
+                        <div class="contact-label">Phone</div>
+                        <div class="contact-value">+381 60 338 3333</div>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-block">
+                <h3>Academic Profiles</h3>
+                <a class="social-link" href="https://www.linkedin.com/in/darjankarabasevic/" target="_blank">
+                    <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+                    LinkedIn
+                    <span class="social-tag">Professional Network</span>
+                </a>
+                <a class="social-link" href="https://www.researchgate.net/profile/Darjan-Karabasevic" target="_blank">
+                    <svg viewBox="0 0 24 24"><path d="M3 3h18v18H3z" rx="2"/><path d="M8 12h8M8 8h8M8 16h4"/></svg>
+                    ResearchGate
+                    <span class="social-tag">Research Repository</span>
+                </a>
+                <a class="social-link" href="https://scholar.google.com/citations?user=ll8iftsAAAAJ&hl=sr&oi=ao" target="_blank">
+                    <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                    Google Scholar
+                    <span class="social-tag">Citations &amp; Impact</span>
+                </a>
+                <a class="social-link" href="https://www.webofscience.com/wos/author/record/697861" target="_blank">
+                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2M9 9h.01M15 9h.01"/></svg>
+                    Web of Science
+                    <span class="social-tag">WoS Author Record</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <p>&copy; 2024 Prof. Dr. Darjan Karabašević — All rights reserved.</p>
+</footer>
+
+<!-- BACK TO TOP -->
+<button class="back-top" id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">
+    <svg viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+
+<script>
+    // Nav scroll
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+        navbar.classList.toggle('scrolled', window.scrollY > 60);
+        document.getElementById('backTop').classList.toggle('visible', window.scrollY > 400);
+    });
+
+    // Mobile menu
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+    hamburger.addEventListener('click', () => mobileMenu.classList.toggle('open'));
+    mobileMenu.querySelectorAll('a').forEach(a => {
+        a.addEventListener('click', () => mobileMenu.classList.remove('open'));
+    });
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+        a.addEventListener('click', e => {
+            e.preventDefault();
+            const target = document.querySelector(a.getAttribute('href'));
+            if (target) target.scrollIntoView({ behavior: 'smooth' });
+        });
+    });
+
+    // Fade-up on scroll
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('in');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
